@@ -35,6 +35,8 @@ impl<TValue: fmt::Display + Clone, TCommand: fmt::Display + Clone>
         command
             .stdin(process::Stdio::piped())
             .stdout(process::Stdio::piped())
+            .args(&["-theme-str", "window\n{height:\n360px;\nwidth:\n720px;}"])
+            .args(&["-theme-str", "listview\n{columns:\n1;}"])
             .arg("-dmenu")
             .arg("-i") // case-insensitive search query
             .args(&["-scroll-method", "1"]) // infinite scroll
